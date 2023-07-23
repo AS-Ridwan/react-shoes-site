@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Product from "./Product";
 
-const Products = ({ handleAddToCart }) => {
-  const [products, setProducts] = useState([]);
-
+const Products = ({ handleAddToCart, products, setProducts }) => {
   useEffect(() => {
     fetch("data.json")
       .then((res) => res.json())

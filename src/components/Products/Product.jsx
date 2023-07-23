@@ -22,7 +22,7 @@ const Product = ({ product, handleAddToCart }) => {
         </div>
         <div className="card-actions justify-end">
           <button
-            onClick={() => handleAddToCart(product)}
+            onClick={() => handleAddToCart(product, id)}
             className="btn bg-black text-white"
           >
             {" "}
