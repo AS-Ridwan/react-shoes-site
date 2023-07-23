@@ -10,20 +10,20 @@
   },
   {
     "id": "def",
-    "name": "Cavalier",
+    "name": "Kavalier",
     "color": "Sandstone",
     "pairImage": "https://cdn.shopify.com/s/files/1/0419/1525/products/1024x1024-Men-Cavalier-Sandstone-012422-3.4_672x672.jpg?v=1646426165",
     "sideImage": "https://cdn.shopify.com/s/files/1/0419/1525/products/1024x1024-Men-Cavalier-Sandstone-012422-Side_672x672.jpg?v=1646693841",
-    "price": 190,
+    "price": 130,
     "quantity": 0
   },
   {
     "id": "ghi",
-    "name": "Cavalier",
+    "name": "javalier",
     "color": "Shadow Gray",
     "pairImage": "https://cdn.shopify.com/s/files/1/0419/1525/products/1024x1024-Mens-Cavalier-Shadow-Grey-190225_672x672.jpg?v=1569110766",
     "sideImage": "https://cdn.shopify.com/s/files/1/0419/1525/products/GreyCavs__copy_672x672.jpg?v=1569076665",
-    "price": 190,
+    "price": 160,
     "quantity": 0
   },
   {

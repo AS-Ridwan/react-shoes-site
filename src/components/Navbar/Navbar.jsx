@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
 import Cart from "../Cart/Cart";
 
-const Navbar = ({ cart, myProduct }) => {
-  console.log(cart);
+const Navbar = ({ cart }) => {
+  // console.log(cart);
   return (
     <div>
       <div className="navbar bg-base-100 ">

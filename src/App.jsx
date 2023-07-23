@@ -6,20 +6,28 @@ import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   const [cart, setCart] = useState([]);
-  const [myProduct, setMyProduct] = useState([]);
 
   const handleAddToCart = (product) => {
-    const newCart = [...cart, product];
+    let newCart = [];
+
+    const exist = cart.find((item) => item.id == product.id);
+    const rest = cart.filter((c) => c.id !== product.id);
+    if (!exist) {
+      product.quantity = 1;
+      newCart = [...cart, product];
+    } else {
+      product.quantity = product.quantity + 1;
+      newCart = [...rest, product];
+    }
     setCart(newCart);
-    setMyProduct(product);
-    console.log(cart);
   };
 
   return (
     <>
       <Navbar cart={cart} />
       <Home handleAddToCart={handleAddToCart} />
-      <Cart />
+
+      <Cart cart={cart}></Cart>
     </>
   );
 }
