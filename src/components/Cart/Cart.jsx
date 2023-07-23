@@ -1,6 +1,7 @@
 import React from "react";
+import { handleCartRemove } from "../Utils/Utils";
 
-const Cart = ({ cart }) => {
+const Cart = ({ cart, handleCart }) => {
   // const { name, price, color, quantity } = item;
   // console.log(cart);
 
@@ -12,6 +13,12 @@ const Cart = ({ cart }) => {
         <div className="drawer-side">
           <label htmlFor="my-drawer-4" className="drawer-overlay"></label>
           <div className="menu p-4 w-80 h-full bg-base-200 text-base-content">
+            <div className="flex justify-between items-center p-2">
+              <h2 className="font-bold text-lg">Cart Products</h2>
+              <button onClick={handleCart} className="border-1 border-black">
+                remove
+              </button>
+            </div>
             {cart.map((item, index) => (
               <div key={index} className="flex p- m-2 border-2 border-blue-200">
                 {/* Sidebar content here */}

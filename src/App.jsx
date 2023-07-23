@@ -3,7 +3,11 @@ import "./App.css";
 import Cart from "./components/Cart/Cart";
 import Home from "./components/Home/Home";
 import Navbar from "./components/Navbar/Navbar";
-import { addToCart, addToStore } from "./components/Utils/Utils";
+import {
+  addToCart,
+  addToStore,
+  handleCartRemove,
+} from "./components/Utils/Utils";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -41,6 +45,11 @@ function App() {
     setCart(newCart);
   };
 
+  const handleCart = () => {
+    handleCartRemove();
+    setCart([]);
+  };
+
   return (
     <>
       <Navbar cart={cart} />
@@ -50,7 +59,7 @@ function App() {
         setProducts={setProducts}
       />
 
-      <Cart cart={cart}></Cart>
+      <Cart cart={cart} handleCart={handleCart}></Cart>
     </>
   );
 }

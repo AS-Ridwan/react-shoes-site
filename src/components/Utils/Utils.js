@@ -28,5 +28,8 @@ const addToCart = () => {
   }
   return shoppingCart;
 };
+const handleCartRemove = () => {
+  localStorage.removeItem("shopping-cart");
+};
 
-export { addToStore, addToCart };
+export { addToStore, addToCart, handleCartRemove };
