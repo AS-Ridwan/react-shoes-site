@@ -1,5 +1,4 @@
 import React from "react";
-import { handleCartRemove } from "../Utils/Utils";
 
 const Cart = ({ cart, handleCart }) => {
   // const { name, price, color, quantity } = item;
