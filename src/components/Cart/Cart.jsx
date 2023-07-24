@@ -1,9 +1,6 @@
 import React from "react";
 
 const Cart = ({ cart, handleCart }) => {
-  // const { name, price, color, quantity } = item;
-  // console.log(cart);
-
   return (
     <div>
       <div className="drawer drawer-end">
@@ -20,7 +17,6 @@ const Cart = ({ cart, handleCart }) => {
             </div>
             {cart.map((item, index) => (
               <div key={index} className="flex p- m-2 border-2 border-blue-200">
-                {/* Sidebar content here */}
                 <div>
                   <img src={item.sideImage} className="w-20 mr-4" alt="" />
                 </div>
