@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { BsFillCartCheckFill } from "react-icons/bs";
+import { MyContext } from "../../App";
 
-const Product = ({ product, handleAddToCart }) => {
+const Product = ({ product }) => {
+  const [products, setProducts, handleAddToCart] = useContext(MyContext);
   const [showImg, setShowImg] = useState(false);
   const { id, name, price, pairImage, sideImage, quantity, color } = product;
 
@@ -23,7 +25,7 @@ const Product = ({ product, handleAddToCart }) => {
         <div className="card-actions justify-end">
           <button
             onClick={() => handleAddToCart(product, id)}
-            className="btn bg-black text-white"
+            className="btn bg-black text-white hover:text-black"
           >
             {" "}
             <BsFillCartCheckFill />{" "}

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import "./App.css";
 import Cart from "./components/Cart/Cart";
 import Home from "./components/Home/Home";
@@ -8,6 +8,8 @@ import {
   addToStore,
   handleCartRemove,
 } from "./components/Utils/Utils";
+
+export const MyContext = createContext();
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -52,14 +54,12 @@ function App() {
 
   return (
     <>
-      <Navbar cart={cart} />
-      <Home
-        handleAddToCart={handleAddToCart}
-        products={products}
-        setProducts={setProducts}
-      />
+      <MyContext.Provider value={[products, setProducts, handleAddToCart]}>
+        <Navbar cart={cart} />
+        <Home />
 
-      <Cart cart={cart} handleCart={handleCart}></Cart>
+        <Cart cart={cart} handleCart={handleCart}></Cart>
+      </MyContext.Provider>
     </>
   );
 }
