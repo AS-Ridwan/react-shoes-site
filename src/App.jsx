@@ -6,14 +6,15 @@ import Navbar from "./components/Navbar/Navbar";
 import {
   addToCart,
   addToStore,
+  handleCartItemRemove,
   handleCartRemove,
 } from "./components/Utils/Utils";
 
 export const MyContext = createContext();
 
 function App() {
-  const [cart, setCart] = useState([]);
   const [products, setProducts] = useState([]);
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     if (products.length) {
@@ -47,6 +48,12 @@ function App() {
     setCart(newCart);
   };
 
+  const handleDelete = (item) => {
+    const selectedItems = cart.filter((p) => p.id !== item.id);
+
+    setCart(selectedItems);
+    handleCartItemRemove(item.id);
+  };
   const handleCart = () => {
     handleCartRemove();
     setCart([]);
@@ -58,7 +65,11 @@ function App() {
         <Navbar cart={cart} />
         <Home />
 
-        <Cart cart={cart} handleCart={handleCart}></Cart>
+        <Cart
+          cart={cart}
+          handleCart={handleCart}
+          handleDelete={handleDelete}
+        ></Cart>
       </MyContext.Provider>
     </>
   );

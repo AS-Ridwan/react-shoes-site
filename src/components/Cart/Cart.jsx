@@ -1,6 +1,7 @@
 import React from "react";
-
-const Cart = ({ cart, handleCart }) => {
+import { AiFillDelete } from "react-icons/ai";
+import CartDetails from "./CartDetails";
+const Cart = ({ cart, handleCart, handleDelete }) => {
   return (
     <div>
       <div className="drawer drawer-end">
@@ -15,19 +16,12 @@ const Cart = ({ cart, handleCart }) => {
                 remove
               </button>
             </div>
-            {cart.map((item, index) => (
-              <div key={index} className="flex p- m-2 border-2 border-blue-200">
-                <div>
-                  <img src={item.sideImage} className="w-20 mr-4" alt="" />
-                </div>
-                <div className="text-start">
-                  <p>
-                    {item.name} {item.color}
-                  </p>
-                  <p>${item.price}</p>
-                  <p>{item.quantity}</p>
-                </div>
-              </div>
+            {cart.map((item) => (
+              <CartDetails
+                key={item.id}
+                item={item}
+                handleDelete={handleDelete}
+              ></CartDetails>
             ))}
           </div>
         </div>

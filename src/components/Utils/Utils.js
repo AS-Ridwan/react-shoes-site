@@ -10,7 +10,7 @@ const addToStore = (id) => {
   const quantity = shoppingCart[id];
   if (quantity) {
     const newQuantity = quantity + 1;
-    console.log(newQuantity);
+    // console.log(newQuantity);
     shoppingCart[id] = newQuantity;
   } else {
     shoppingCart[id] = 1;
@@ -31,5 +31,15 @@ const addToCart = () => {
 const handleCartRemove = () => {
   localStorage.removeItem("shopping-cart");
 };
+const handleCartItemRemove = (id) => {
+  const storedCart = localStorage.getItem("shopping-cart");
+  if (storedCart) {
+    const shoppingCart = JSON.parse(storedCart);
+    if (id in shoppingCart) {
+      delete shoppingCart[id];
+      localStorage.setItem("shopping-cart", JSON.stringify(shoppingCart));
+    }
+  }
+};
 
-export { addToStore, addToCart, handleCartRemove };
+export { addToStore, addToCart, handleCartRemove, handleCartItemRemove };
